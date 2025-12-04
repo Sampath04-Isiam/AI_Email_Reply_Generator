@@ -1,6 +1,6 @@
 # AI Email Reply Generator
 
-The **AI Email Reply Generator** is an intelligent application designed to streamline and automate the process of composing email responses using advanced natural language processing (NLP) models. With this tool, users can generate contextually appropriate, well-written email replies with just a few clicks, saving time and improving communication efficiency.
+The **AI Email Reply Generator** is an intelligent application designed to streamline and automate the process of composing email responses using advanced natural language processing (NLP) models. With this tool, you can instantly generate relevant and context-aware replies, saving time and ensuring professionalism.
 
 ## Features
 
@@ -31,23 +31,48 @@ git clone https://github.com/Sampath04-Isiam/AI_Email_Reply_Generator.git
 cd AI_Email_Reply_Generator
 ```
 
-Install dependencies (example using Python):
+### Prerequisites
+
+- Java 21
+- Maven installed
+- ReactJS
+
+## Setup and Configuration
+
+1. **Set the Gemini API Key:**
+   - Copy `config.example.properties` to `config.properties`.
+   - Set your [Google Gemini API key](https://ai.google.dev/) in `config.properties`:
+     ```
+     gemini.api.key=YOUR_GEMINI_API_KEY
+     ```
+2. Configure your email provider credentials in `config.properties`.
+
+## Build and Run
+
+Build the Spring Boot application using Maven:
 ```bash
-pip install -r requirements.txt
+mvn clean install
 ```
+
+Run the application:
+```bash
+mvn spring-boot:run
+```
+
+The application will start on the default port (`8080`). You can access the web UI (if available) or use the provided REST API to interact with the AI Email Reply Generator.
 
 ## Usage
 
-(Provide steps or code for running the app, e.g.,)
-```bash
-python main.py
-```
-Or, if there is a web UI, instructions for launching and accessing it.
+- Send a POST request to `/api/generate-reply` with the following JSON payload:
+  ```json
+  {
+    "emailContent": "Your email body here.",
+    "tone": "formal"
+  }
+  ```
+- The response will contain the AI-generated reply.
 
-## Configuration
-
-- Set your email provider credentials and AI API keys in the `config.example.json` file (rename to `config.json`).
-- Update preferences according to your workflow.
+Or, follow the web UI instructions if present.
 
 ## Contribution
 
